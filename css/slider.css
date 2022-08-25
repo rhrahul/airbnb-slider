@@ -1,0 +1,528 @@
+.airbnb-slider {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 2px;
+  width: 100%;
+  overflow: hidden;
+  -ms-grid-columns: auto 2px auto 2px auto 2px auto;
+  grid-template-columns: auto auto auto auto;
+  -ms-grid-rows: 1;
+  grid-template-rows: 1;
+  max-height: 440px;
+  background-color: #000;
+  position: relative;
+}
+.airbnb-slider > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.airbnb-slider > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+.airbnb-slider > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+.airbnb-slider > *:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+}
+.airbnb-slider .single-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  -webkit-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+.airbnb-slider .single-image:hover > img {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  /* background-size: 120%; */
+}
+.airbnb-slider .single-image:first-child {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+  height: 440px;
+}
+.airbnb-slider .single-image > img {
+  max-width: 100%;
+  /* max-height: 100%; */
+  /* height: 100%; */
+  width: 100%;
+  /* display: block; */
+  /* min-height: 100%; */
+  -webkit-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  z-index: 9;
+}
+.airbnb-slider .single-image .bg-blur-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+}
+
+.airbnb-slider .show-img-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 15px;
+  background-color: #fff;
+  z-index: 99;
+  color: var(--dark);
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.airbnb-slider-full {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
+  display: none;
+}
+.airbnb-slider-full-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.airbnb-slider-full .big-image {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 99;
+}
+.airbnb-slider-full .big-image img {
+  display: none;
+  max-height: 75vh;
+  -o-object-fit: cover;
+  object-fit: cover;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 16px;
+  position: absolute;
+  max-width: 85%;
+  margin: 0px auto;
+  top: 50%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 1;
+  -webkit-transition: opacity 150ms ease-in-out 0s,
+    -webkit-transform 150ms ease-in-out 0s;
+  transition: opacity 150ms ease-in-out 0s,
+    -webkit-transform 150ms ease-in-out 0s;
+  -o-transition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;
+  transition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;
+  transition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s,
+    -webkit-transform 150ms ease-in-out 0s;
+}
+.airbnb-slider-full .big-image .buttons-group {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  top: 0;
+}
+.airbnb-slider-full .big-image .buttons-group > button {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  cursor: pointer;
+  height: 100%;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 5px;
+  z-index: 9;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.airbnb-slider-full .big-image .buttons-group button#right-arrow {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.airbnb-slider-full .big-image .buttons-group > button {
+}
+.airbnb-slider-full .big-image .buttons-group > button i {
+  font-size: 30px;
+}
+
+.airbnb-slider-full .thumbnail-list {
+  padding-top: 152px;
+  min-width: 380px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.airbnb-slider-full .close-btn-slider {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 30px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 999;
+}
+.airbnb-slider-full .thumbnail-list ul.image-list {
+  list-style-type: none;
+  left: 0px !important;
+  transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s,
+    transform 0.3s ease-out 0s;
+  margin: 0px;
+  /* padding: 0px 0px 0px 8px; */
+  /* max-height: 64px; */
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  padding: 6px 0px;
+}
+.airbnb-slider-full .thumbnail-list .image-list li {
+  /* float: left; */
+  background-color: rgb(255, 255, 255);
+  margin-left: 10px;
+  border-radius: 4px;
+  padding: 5px;
+}
+.airbnb-slider-full .thumbnail-list .image-list li button {
+  width: 64px !important;
+  height: 64px !important;
+  overflow: hidden;
+  font-weight: inherit;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  opacity: 0.7;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  -o-border-image: initial;
+  border-image: initial;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 4px;
+  outline: none;
+}
+.airbnb-slider-full .thumbnail-list .image-list li button:hover {
+  opacity: 1;
+}
+.airbnb-slider-full .thumbnail-list .image-list li button.active {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px 2px,
+    rgb(72, 72, 72) 0px 0px 0px 2px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px 2px,
+    rgb(72, 72, 72) 0px 0px 0px 2px;
+  opacity: 1;
+}
+.airbnb-slider-full .thumbnail-list .image-list li button img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: auto !important;
+  width: 100% !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 4px !important;
+}
+.airbnb-slider-full .thumbnail-list-container {
+  padding-right: 50px;
+  position: relative;
+}
+.airbnb-slider-full .thumbnail-list-container > div {
+  width: 32px;
+  height: 80px;
+}
+.airbnb-slider-full .thumbnail-list-container div.left-side {
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(rgb(255, 255, 255)),
+    color-stop(90.82%, rgba(255, 255, 255, 0))
+  ) !important;
+  background: -o-linear-gradient(
+    right,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 90.82%
+  ) !important;
+  background: linear-gradient(
+    270deg,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 90.82%
+  ) !important;
+  position: absolute;
+  -webkit-transform: rotate(180deg) !important;
+  -ms-transform: rotate(180deg) !important;
+  transform: rotate(180deg) !important;
+  z-index: 9 !important;
+}
+.airbnb-slider-full .thumbnail-list-container div.right-side {
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(rgb(255, 255, 255)),
+    color-stop(90.82%, rgba(255, 255, 255, 0))
+  ) !important;
+  background: -o-linear-gradient(
+    right,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 90.82%
+  ) !important;
+  background: linear-gradient(
+    270deg,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 90.82%
+  ) !important;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  z-index: 9 !important;
+}
+
+.airbnb-slider-full .thumbnail-info {
+  margin-top: 50px;
+  padding-left: 8px;
+  padding-right: 50px;
+}
+.airbnb-slider-full .thumbnail-info #current-image {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--dark);
+}
+.airbnb-slider-full .thumbnail-info #current-image-info {
+  color: var(--dark);
+}
+@media only screen and (max-width: 1280px) {
+  .airbnb-slider {
+    height: 330px;
+  }
+  .airbnb-slider .single-image {
+    height: 165px;
+  }
+  .airbnb-slider .single-image:first-child {
+    height: 330px;
+  }
+}
+@media only screen and (max-width: 1125px) {
+  .airbnb-slider-full-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .airbnb-slider-full .big-image img {
+    max-height: 55vh;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 1;
+    -webkit-transform: translate(0px, -50%);
+    -ms-transform: translate(0px, -50%);
+    transform: translate(0px, -50%);
+  }
+  .airbnb-slider-full .close-btn-slider {
+    right: 10px;
+    top: 10px;
+  }
+  .airbnb-slider-full .thumbnail-list {
+    padding: 20px 50px 35px 50px;
+  }
+  .airbnb-slider-full .thumbnail-list-container {
+    padding-right: 0px;
+  }
+  .airbnb-slider-full .thumbnail-list-container div.right-side {
+    right: 0;
+  }
+  .airbnb-slider {
+    -ms-grid-columns: auto 2px auto 2px auto 2px auto 2px auto;
+    grid-template-columns: auto auto auto auto auto;
+    height: 330px;
+  }
+  .airbnb-slider .single-image {
+    height: 165px;
+  }
+  .airbnb-slider .single-image:first-child {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / span 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1 / span 2;
+    height: 330px;
+  }
+  .airbnb-slider .single-image:nth-child(2) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 2;
+    grid-area: 2 / 4 / 2 / 6;
+  }
+  .airbnb-slider .single-image:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 2;
+    grid-area: 1 / 4 / 1 / 6;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .airbnb-slider-full .thumbnail-list {
+    min-width: 280px;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .airbnb-slider .single-image:hover > img {
+    -webkit-transform: scale(1) !important;
+    -ms-transform: scale(1) !important;
+    transform: scale(1) !important;
+  }
+  .airbnb-slider-full {
+    background-color: var(--dark);
+  }
+  .airbnb-slider-full .thumbnail-list-container {
+    display: none;
+  }
+  .airbnb-slider-full svg {
+    fill: #fff !important;
+  }
+  .airbnb-slider-full .big-image {
+    padding: 0;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    max-height: 70vh;
+  }
+  .airbnb-slider-full .big-image img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .airbnb-slider-full .thumbnail-info > div {
+    color: #fff !important;
+  }
+  .airbnb-slider-full .thumbnail-info {
+    margin-top: 120px;
+  }
+  .airbnb-slider {
+    height: 70vw;
+    position: relative;
+    display: block;
+  }
+  .airbnb-slider .single-image {
+    width: 100vw;
+    height: 70vw !important;
+  }
+  .airbnb-slider .single-image img {
+    max-height: 100%;
+    height: 100% !important;
+  }
+  .owl-carousel .owl-item img {
+    width: auto !important;
+  }
+  .airbnb-slider .show-img-btn {
+    display: none;
+  }
+  .airbnb-slider .owl-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .airbnb-slider .owl-dots .owl-dot {
+    background: #fff;
+    width: 6px;
+    height: 6px;
+    margin: 0px 4px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    opacity: 0.6;
+    -webkit-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+    transition: 0.2s all ease-in-out;
+  }
+  .airbnb-slider .owl-dots .owl-dot.active {
+    -webkit-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    transform: scale(1.6);
+    opacity: 1;
+  }
+}
